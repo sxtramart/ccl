@@ -4,7 +4,7 @@ module.exports = {
     inVoiceChannel: true,
     run: async (client, message, args) => {
         const string = args.join(" ")
-        if (!string) return message.channel.send(`${client.emotes.error} | Please enter a song url or query to search.`)
+        if (!string) return message.channel.send(`${client.emotes.error} | Vui lòng nhập url bài hát hoặc tên bài hát để tìm kiếm.`)
         try {
             client.distube.play(message, string)
         } catch (e) {
