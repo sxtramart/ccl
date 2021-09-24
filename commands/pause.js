@@ -10,6 +10,6 @@ module.exports = {
             return message.channel.send("Resumed the song for you :)")
         }
         client.distube.pause(message)
-        message.channel.send("Paused the song for you :)")
+        message.channel.send("Đã tạm dừng bài hát")
     }
 }
