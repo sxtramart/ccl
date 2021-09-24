@@ -47,10 +47,10 @@ client.on("message", async message => {
 const status = queue => `Âm lượng: \`${queue.volume}%\` | Filter: \`${queue.filter || "Off"}\` | Lặp lại: \`${queue.repeatMode ? queue.repeatMode === 2 ? "All Queue" : "This Song" : "Off"}\` | Tự động phát: \`${queue.autoplay ? "On" : "Off"}\``
 client.distube
     .on("playSong", (message, queue, song) => message.channel.send(
-        `${client.emotes.play} | Playing \`${song.name}\` - \`${song.formattedDuration}\`\n\n${status(queue)}`
+        `${client.emotes.play} | Phát \`${song.name}\` - \`${song.formattedDuration}\`\n\n${status(queue)}`
     ))
     .on("addSong", (message, queue, song) => message.channel.send(
-        `${client.emotes.success} | Added ${song.name} - \`${song.formattedDuration}\``
+        `${client.emotes.success} | Thêm ${song.name} - \`${song.formattedDuration}\``
     ))
     .on("playList", (message, queue, playlist, song) => message.channel.send(
         `${client.emotes.play} | Phát \`${playlist.title}\` Danh sách phát (${playlist.total_items} songs).\n\nĐang phát hiện tại \`${song.name}\` - \`${song.formattedDuration}\`\n${status(queue)}`
