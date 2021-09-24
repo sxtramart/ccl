@@ -35,7 +35,7 @@ client.on("message", async message => {
     const command = args.shift().toLowerCase()
     const cmd = client.commands.get(command) || client.commands.get(client.aliases.get(command))
     if (!cmd) return
-    if (cmd.inVoiceChannel && !message.member.voice.channel) return message.channel.send(`${client.emotes.error} | You must be in a voice channel!`)
+    if (cmd.inVoiceChannel && !message.member.voice.channel) return message.channel.send(`${client.emotes.error} | Vô kênh thoại mới gọi được nhạc má ơi!`)
     try {
         cmd.run(client, message, args)
     } catch (e) {
@@ -44,7 +44,7 @@ client.on("message", async message => {
     }
 })
 
-const status = queue => `Volume: \`${queue.volume}%\` | Filter: \`${queue.filter || "Off"}\` | Loop: \`${queue.repeatMode ? queue.repeatMode === 2 ? "All Queue" : "This Song" : "Off"}\` | Autoplay: \`${queue.autoplay ? "On" : "Off"}\``
+const status = queue => `Âm lượng: \`${queue.volume}%\` | Filter: \`${queue.filter || "Off"}\` | Lặp lại: \`${queue.repeatMode ? queue.repeatMode === 2 ? "All Queue" : "This Song" : "Off"}\` | Tự động phát: \`${queue.autoplay ? "On" : "Off"}\``
 client.distube
     .on("playSong", (message, queue, song) => message.channel.send(
         `${client.emotes.play} | Playing \`${song.name}\` - \`${song.formattedDuration}\`\n\n${status(queue)}`
@@ -56,15 +56,15 @@ client.distube
         `${client.emotes.play} | Play \`${playlist.title}\` playlist (${playlist.total_items} songs).\n\nNow playing \`${song.name}\` - \`${song.formattedDuration}\`\n${status(queue)}`
     ))
     .on("addList", (message, queue, playlist) => message.channel.send(
-        `${client.emotes.success} | Added \`${playlist.title}\` playlist (${playlist.total_items} songs) to queue\n${status(queue)}`
+        `${client.emotes.success} | Thêm \`${playlist.title}\` Danh sách  (${playlist.total_items} songs) to queue\n${status(queue)}`
     ))
     // DisTubeOptions.searchSongs = true
     .on("searchResult", (message, result) => {
         let i = 0
-        message.channel.send(`**Choose an option from below**\n${result.map(song => `**${++i}**. ${song.name} - \`${song.formattedDuration}\``).join("\n")}\n*Enter anything else or wait 60 seconds to cancel*`)
+        message.channel.send(`**Chọn bài hát muốn nghe**\n${result.map(song => `**${++i}**. ${song.name} - \`${song.formattedDuration}\``).join("\n")}\n*Nhập số thứ tự của bài hát cần nghe hoặc chờ 60s để hủy*`)
     })
     // DisTubeOptions.searchSongs = true
-    .on("searchCancel", message => message.channel.send(`${client.emotes.error} | Searching canceled`))
-    .on("error", (message, err) => message.channel.send(`${client.emotes.error} | An error encountered: ${err}`))
+    .on("searchCancel", message => message.channel.send(`${client.emotes.error} | Hủy tìm kiếm`))
+    .on("error", (message, err) => message.channel.send(`${client.emotes.error} | Đã xảy ra lỗi: ${err}`))
 
 client.login(config.token)
