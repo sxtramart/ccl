@@ -25,7 +25,7 @@ fs.readdir("./commands/", (err, files) => {
 client.on("ready", () => {
     console.log(`${client.user.tag} is ready to play music.`)
     const server = client.voice.connections.size
-    client.user.setActivity({ name: `Gấu Hư CấuCấu` })
+    client.user.setActivity({ name: `Gấu Hư Cấu` })
 })
 
 client.on("message", async message => {
@@ -53,10 +53,10 @@ client.distube
         `${client.emotes.success} | Added ${song.name} - \`${song.formattedDuration}\``
     ))
     .on("playList", (message, queue, playlist, song) => message.channel.send(
-        `${client.emotes.play} | Play \`${playlist.title}\` playlist (${playlist.total_items} songs).\n\nNow playing \`${song.name}\` - \`${song.formattedDuration}\`\n${status(queue)}`
+        `${client.emotes.play} | Phát \`${playlist.title}\` Danh sách phát (${playlist.total_items} songs).\n\nĐang phát hiện tại \`${song.name}\` - \`${song.formattedDuration}\`\n${status(queue)}`
     ))
     .on("addList", (message, queue, playlist) => message.channel.send(
-        `${client.emotes.success} | Thêm \`${playlist.title}\` Danh sách  (${playlist.total_items} songs) to queue\n${status(queue)}`
+        `${client.emotes.success} | Thêm \`${playlist.title}\` Danh sách  (${playlist.total_items} songs) hành \n${status(queue)}`
     ))
     // DisTubeOptions.searchSongs = true
     .on("searchResult", (message, result) => {
