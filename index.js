@@ -25,7 +25,7 @@ fs.readdir("./commands/", (err, files) => {
 client.on("ready", () => {
     console.log(`${client.user.tag} is ready to play music.`)
     const server = client.voice.connections.size
-    client.user.setActivity({ name: `Gấu Hư Cấu` })
+    client.user.setActivity({ name: `mhelp and mplay` })
 })
 
 client.on("message", async message => {
