@@ -50,7 +50,7 @@ client.distube
         `${client.emotes.play} | Phát \`${song.name}\` - \`${song.formattedDuration}\`\n\n${status(queue)}`
     ))
     .on("addSong", (message, queue, song) => message.channel.send(
-        `${client.emotes.success} | Thêm ${song.name} - \`${song.formattedDuration}\``
+        `${client.emotes.success} | Thêm ${song.name} - \`${song.formattedDuration}\` vào danh sách phát`
     ))
     .on("playList", (message, queue, playlist, song) => message.channel.send(
         `${client.emotes.play} | Phát \`${playlist.title}\` Danh sách phát (${playlist.total_items} songs).\n\nĐang phát hiện tại \`${song.name}\` - \`${song.formattedDuration}\`\n${status(queue)}`
